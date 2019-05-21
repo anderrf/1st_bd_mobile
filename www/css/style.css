@@ -10,14 +10,28 @@ body{
   margin-top: 20px;
   padding-bottom: 20px;
   width: 95%;
+  height: 450px;
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  margin: auto;
+}
+
+@font-face{
+  font-family: 'prstart';
+  src: url("../fonts/prstart.ttf") format('truetype');
 }
 
 h1{
-  font-family: verdana;
+  font-family: prstart;
+  font-size: 30px;
+  color: black;
 }
 
 h2{
-  font-family: verdana;
+  font-family: prstart;
+  font-size: 20px;
+  color: black;
 }
 
 .row{
@@ -26,11 +40,12 @@ h2{
 }
 
 label{
-  font-family: verdana;
-  font-size: 18px;
+  font-family: prstart;
+  font-size: 15px;
+  color: black;
 }
 
 button{
-  font-family: verdana;
+  font-family: prstart;
   font-size: 18px;
 }
