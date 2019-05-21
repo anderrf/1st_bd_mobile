@@ -23,3 +23,7 @@ $(document).on("click", "#cadastrar", function(){
   });
 
 });
+
+$(document).on("click", "#lista", function(){
+  $(location).attr("href", "lista.html");
+});
