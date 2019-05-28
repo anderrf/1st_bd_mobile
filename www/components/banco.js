@@ -47,3 +47,23 @@ function listarPessoas(){
     }
   });
 }
+
+$(document).on("change", "#lista", function(){
+  var codigoEscolhido = $("option:selected", ("#lista")).val();
+  $.ajax({
+    type: "get", //como enviar
+    url: "https://first-bd-mobile-2-andersonrf.c9users.io/webservice/lista-um.php", //para onde enviar
+    data: "id="+codigoEscolhido,
+    dataType:"json",
+    //se der certo
+    success: function(data){
+      $("#codigoL").val(data.pessoas.codigo);
+      $("#nomeL").val(data.pessoas.nome);
+      $("#emailL").val(data.pessoas.email);
+    },
+    //se der errado
+    error: function(data){
+      navigator.notification.alert(data);
+    }
+  });
+});
