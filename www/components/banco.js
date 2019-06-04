@@ -67,3 +67,21 @@ $(document).on("change", "#lista", function(){
     }
   });
 });
+
+$(document).on("click", "#btnDeletar", function(){
+  $.ajax({
+    type: "get", //como enviar
+    url: "https://first-bd-mobile-2-andersonrf.c9users.io/webservice/deleta.php", //para onde enviar
+    data: "id="+$("#codigoL").val(),
+    dataType:"json",
+    //se der certo
+    success: function(data){
+      navigator.notification.alert(data);
+      location.reload();//recarrega a página
+    },
+    //se der errado
+    error: function(data){
+      navigator.notification.alert(data);
+    }
+  });
+});
