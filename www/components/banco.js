@@ -85,3 +85,45 @@ $(document).on("click", "#btnDeletar", function(){
     }
   });
 });
+
+$(document).on("click", "#btnSalvar", function(){
+  var parametros = {
+    "codigo": $("#codigoL").val(),
+    "nome": $("#nomeL").val(),
+    "email": $("#emailL").val()
+  };
+
+  $.ajax({
+    type: "post", //como enviar
+    url: "https://first-bd-mobile-2-andersonrf.c9users.io/webservice/update.php", //para onde enviar
+    data: parametros,
+    dataType:"json",
+    //se der certo
+    success: function(data){
+      navigator.notification.alert(data);
+      location.reload();
+    },
+    //se der errado
+    error: function(data){
+      navigator.notification.alert(data);
+    }
+  });
+});
+
+function habilita(){
+  $("#nomeL").prop("readonly", false);
+  $("#emailL").prop("readonly", false);
+}
+
+function desabilita(){
+  $("#nomeL").prop("readonly", true);
+  $("#emailL").prop("readonly", true);
+}
+
+$(document).on("click", "#btnEditar", function(){
+  habilita();
+});
+
+$(document).on("click", "#btnCancelar", function(){
+  desabilita();
+});
